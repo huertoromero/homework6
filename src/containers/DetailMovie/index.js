@@ -7,7 +7,7 @@ class DetailMovie extends React.Component{
     super(props);
 
     this.state = {
-      Movie: {},
+      Movie: null,
       error: null, //Para hacer un ejemplo manejando el error.
     }
   }
@@ -51,6 +51,7 @@ class DetailMovie extends React.Component{
 
   render(){
     const { Movie, error } = this.state;
+    const movie  = Movie  && Movie.movie;
     return(
       <div className="detail-Movie">
         {
@@ -58,7 +59,7 @@ class DetailMovie extends React.Component{
           : 
           !Movie 
           ? <h2> No hay Movie cargado aún, esperando... </h2>
-          : <CardDetail {...Movie} />
+          : <CardDetail {...movie} />
         }
       
       </div>

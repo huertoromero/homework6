@@ -14,7 +14,7 @@ const Card = (props ) =>{
         <div className="card-stacked">
           <div className="card-content" style={styles.content}>
             <Link to={`/movie/${props.id}`} >
-              <h2> { props.title_english } </h2>
+              <h2> { props.title} </h2>
             </Link>
           </div>
         </div>

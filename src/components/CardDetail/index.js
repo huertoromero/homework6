@@ -1,28 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CardDetail = ({ name, sprites, weight, height}) => ( //Card que va a renderizar los datos que traemos unicamente.
+const CardDetail =  ({title, description_intro,background_image_original }) =>{
+  console.log(title);
+return ( //Card que va a renderizar los datos que traemos unicamente.
   <div className="card-detail">
     <div className="container">
       <div className="row">
         <div className="col s12">
           <div className="card">
-            <div className="card-image">
-              <img src={sprites && sprites.front_default} />
+            <img src={background_image_original} ></img>
             </div>
+            
               <div className="card-content">
                   <ul>
-                    <li>
-                      <strong> Nombre: </strong> <span> {name}</span>
+                  <li>
+                      <strong> Titulo: </strong> <span> {title}</span>
                     </li>
+                    
                     <li>
-                      <strong> Weight: </strong> <span> {weight}</span>
+                      <strong> Descripcion: </strong> <span> {description_intro}</span>
                     </li>
-                    <li>
-                      <strong> Height: </strong> <span> {height}</span>
-                    </li>
+                    
                   </ul>
               </div>
+            
               <div className="card-action">
                 <Link to='/'>
                   Volver al listado
@@ -33,7 +35,7 @@ const CardDetail = ({ name, sprites, weight, height}) => ( //Card que va a rende
         </div>
 
     </div>
-  </div>
-);
+ 
+)};
 
 export default CardDetail;

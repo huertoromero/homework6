@@ -1,41 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Card } from 'antd';
+const { Meta } = Card;
 
-const CardDetail =  ({title, description_intro,background_image_original }) =>{
+const CardDetail =  ({title, description_full,medium_cover_image}) =>{
   console.log(title);
 return ( //Card que va a renderizar los datos que traemos unicamente.
-  <div className="card-detail">
-    <div className="container">
-      <div className="row">
-        <div className="col s12">
-          <div className="card">
-            <img src={background_image_original} ></img>
-            </div>
-            
-              <div className="card-content">
-                  <ul>
-                  <li>
-                      <strong> Titulo: </strong> <span> {title}</span>
-                    </li>
-                    
-                    <li>
-                      <strong> Descripcion: </strong> <span> {description_intro}</span>
-                    </li>
-                    
-                  </ul>
-              </div>
-            
-              <div className="card-action">
-                <Link to='/'>
-                  Volver al listado
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-
-    </div>
- 
+  <Card
+    hoverable
+    cover={<img src={medium_cover_image} />}
+    style={{ width: 700}}
+    
+>
+<Meta title={title} description={description_full} />
+</Card>
 )};
 
 export default CardDetail;

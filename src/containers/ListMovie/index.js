@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../../components/Card';
-import MovieService from './../../services/MoviesApiService';
+import MovieService from '../../services/MoviesApiService';
 
 class ListMovie extends React.Component{
   constructor(props){
@@ -13,15 +13,11 @@ class ListMovie extends React.Component{
   
   async componentDidMount(){
     const response = await MovieService.getAllMovie();
-    const list = response.results;
-    const newList = list.map( (item) => {
-        const id = item.url.split('/')[6];
-        item.id = id;
-        return item;
-    })
+    const list = response.movies;
+
 
     this.setState({
-      list:newList,
+      list
     });
 
   }

@@ -1,20 +1,22 @@
-class moviesApiService{
+class MoviesApiService{
     constructor(){
       this.apiUrl = 'https://yts.am/api/v2/list_movies.json';
     }
     
-    async getAllPokemon(){
+    async getAllMovie(){
       const response = await fetch('https://yts.am/api/v2/list_movies.json');
       const data = await response.json();
-      return data;
+      console.log(data.data);
+      return data.data;
+      
     }
     
-    async getPokemonById(id){
-      const response = await fetch(`https://yts.am/api/v2/list_movies.json/${id}`);
+    async getMovieById(id){
+      const response = await fetch(`https://yts.am/api/v2/movie_details.json?movie_id=${id}`);
       const data = await response.json();
-      return data;
+      return data.data;
     }
   }
   
-  const _instance = new PokeApiService();
+  const _instance = new MoviesApiService();
   export default _instance;

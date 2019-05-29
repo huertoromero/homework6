@@ -1,6 +1,6 @@
 import React from 'react';
 import CardDetail from '../../components/CardDetail';
-import MovieApiInstance from './../../services/MoviesApiService'; //Hacemos uso de la instancia de MovieService
+import MovieApiInstance from '../../services/MoviesApiService'; //Hacemos uso de la instancia de MovieService
 
 class DetailMovie extends React.Component{
   constructor(props){
@@ -34,7 +34,9 @@ class DetailMovie extends React.Component{
     if (idMovie.length > 0) { //Si tengo un Id, entonces ejecutar. Podria ser 0 el id por lo que no puedo poner un !idMovie
       MovieApiInstance.getMovieById(idMovie)
       .then( //Ejemplo Con promesas
+        
         Movie => {
+          console.log(Movie);
           this.setState({
             Movie,
           });
